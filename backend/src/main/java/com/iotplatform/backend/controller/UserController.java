@@ -42,8 +42,7 @@ public class UserController {
     }
 
     @PutMapping("/reset_password/{email}/{username}")
-    public Result forgetPassword(@PathVariable String email,
-                                 @PathVariable String username) {
+    public Result forgetPassword(@PathVariable String email,@PathVariable String username) {
         try {
             return userService.resetPassword(email, username);
         } catch (Exception e) {
@@ -51,5 +50,7 @@ public class UserController {
             return Result.error("密码更新错误");
         }
     }
+
+
 
 }

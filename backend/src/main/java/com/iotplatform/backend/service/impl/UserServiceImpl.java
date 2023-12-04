@@ -101,7 +101,7 @@ public class UserServiceImpl implements UserService {
         System.out.print("newPassword" + newPassword);
         String md5_password = MD5Util.getMD5Str(newPassword);
         //更新密码
-        userMapper.updatePassword(Integer.valueOf(user.getId()), md5_password);
+        userMapper.updatePassword(user.getId().toString(), md5_password);
         //向邮箱发送动态密码
         try {
             MSUtil.sendEmail(newPassword, email);

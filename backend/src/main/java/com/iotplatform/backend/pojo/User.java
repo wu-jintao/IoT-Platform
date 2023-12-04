@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements Serializable {
-    private String id;
+    private Integer id;
     private String password;
     private LocalDateTime lastLogin;
     private String username;
@@ -22,10 +22,4 @@ public class User implements Serializable {
     private Short isDeveloper;
     private String img;
     private String phone;
-
-    public User(String id, String username) {
-        this.id = id;
-        this.username = username;
-    }
-
 }

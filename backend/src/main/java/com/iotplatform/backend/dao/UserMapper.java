@@ -1,10 +1,7 @@
 package com.iotplatform.backend.dao;
 
 import com.iotplatform.backend.pojo.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 @Mapper
 public interface UserMapper {
@@ -26,5 +23,7 @@ public interface UserMapper {
 
     /*修改密码*/
     @Update("update users set password = #{password} where id = #{id}")
-    public int updatePassword(Integer id,String password);
+    //public int updatePassword(String id,String password);
+    public int updatePassword(@Param("id") String id, @Param("password") String password);
+
 }
