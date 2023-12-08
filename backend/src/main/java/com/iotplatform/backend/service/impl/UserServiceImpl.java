@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean isPassword(String password) {
-        //    String str = "^[0-9a-zA-Z]{6,16}+$";//必须同时包含字母数字并且是6-16位
+        // String str = "^[0-9a-zA-Z]{6,16}+$";//必须同时包含字母数字并且是6-16位
         String str = "^[a-zA-Z]\\w{5,17}$";//密码字母数字下划线组成6-18位
         //正则表达式的模式
         Pattern p = Pattern.compile(str);
@@ -95,7 +95,6 @@ public class UserServiceImpl implements UserService {
             return Result.error("用户名或者email错误");
         }
         //构建动态密码
-        //int newPassword = new Random().nextInt(999999);
         String Password = getStringRandom(8);
         String newPassword = "A" + Password;
         System.out.print("newPassword" + newPassword);
@@ -107,7 +106,6 @@ public class UserServiceImpl implements UserService {
             MSUtil.sendEmail(newPassword, email);
         } catch (Exception e) {
             e.printStackTrace();
-//            throw ie;
             return Result.error("email发送错误");
         }
         return Result.success();

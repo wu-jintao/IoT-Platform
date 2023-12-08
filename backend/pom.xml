@@ -30,7 +30,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
-            <!-- 将Lombok的scope修改为compile，确保Lombok在编译时能够正确处理注解 -->
             <scope>compile</scope>
         </dependency>
 
@@ -57,6 +56,12 @@
             <groupId>com.sun.mail</groupId>
             <artifactId>javax.mail</artifactId>
             <version>1.6.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>3.2.0</version>
         </dependency>
 
     </dependencies>

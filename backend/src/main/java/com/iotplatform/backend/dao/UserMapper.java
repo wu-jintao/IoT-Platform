@@ -26,4 +26,5 @@ public interface UserMapper {
     //public int updatePassword(String id,String password);
     public int updatePassword(@Param("id") String id, @Param("password") String password);
 
+
 }
