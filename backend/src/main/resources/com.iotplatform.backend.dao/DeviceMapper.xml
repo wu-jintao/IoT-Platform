@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotplatform.backend.dao.DeviceMapper">
+    <!--注册用户信息保存-->
+    <update id="update" parameterType="com.iotplatform.backend.pojo.Device" >
+        update devices
+        <set>
+            <if test="title!=null">
+                title=#{title},
+            </if>
+            <if test="devType!=null">
+                dev_type=#{devType},
+            </if>
+            <if test="mac!=null">
+                mac=#{mac},
+            </if>
+            <if test="devStatus!=null">
+                dev_status=#{devStatus},
+            </if>
+            <if test="created!=null">
+                created=#{created},
+            </if>
+            <if test="updated!=null">
+                updated=#{updated},
+            </if>
+            <if test="deviceImg!=null">
+                deviceImg=#{deviceImg},
+            </if>
+            <if test="description!=null">
+                description=#{description},
+            </if>
+            <if test="userId!=null">
+                user_id=#{userId}
+            </if>
+        </set>
+        where id=#{id}
+    </update>
+</mapper>
