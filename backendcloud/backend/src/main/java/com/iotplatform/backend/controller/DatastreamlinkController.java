@@ -18,8 +18,7 @@ public class DatastreamlinkController {
     private IUpdatastreamService updatastreamService;
     @Autowired
     private IDowndatastreamService downdatastreamService;
-    /*value = "创建设备通道(并关联上下通道)",notes = "创建设备双向通道（上下通道及关
-联）或者向上通道"
+    /*value = "创建设备通道(并关联上下通道)",notes = "创建设备双向通道（上下通道及关联）或者向上通道"
     * deviceId:设备ID
     * title:通道名称
     * data_type:通道数据类型，data_type：<0：默认全部 1：数值2：开关 3 GPS 4：文本>
@@ -48,8 +47,7 @@ public class DatastreamlinkController {
         }
         return Result.error("INPUT_PARAM_ERROR");
     }
-    /*(value = "查询设备向上通道对应的向下通道",notes = "根据设备向上通道查找对应向下通
-道")*/
+    /*(value = "查询设备向上通道对应的向下通道",notes = "根据设备向上通道查找对应向下通道")*/
     @GetMapping(value = "{updatastreamId}/downdatastream")
     public Result findDownByUp(@PathVariable String updatastreamId){
         try{

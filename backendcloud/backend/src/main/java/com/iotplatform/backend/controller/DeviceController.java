@@ -56,12 +56,9 @@ public class DeviceController {
      * direct：<1 设备向上通道 2 设备向下通道 0 设备所有通道>
      * data_type：<0：默认全部 1：数值2：开关 3 GPS 4：文本>**/
     @GetMapping("/{device_pk}/datastream/{direct}/{data_type}")
-    public Result findDataStreamByType(@PathVariable("device_pk") String
-                                               device_pk,@PathVariable("direct") Integer direct,@PathVariable("data_type")
-                                       Integer data_type){
+    public Result findDataStreamByType(@PathVariable("device_pk") String device_pk,@PathVariable("direct") Integer direct,@PathVariable("data_type") Integer data_type){
         try{
-            return
-                    deviceService.findDataStreamByType(device_pk,direct,data_type);
+            return deviceService.findDataStreamByType(device_pk,direct,data_type);
         }catch (Exception e){
             e.printStackTrace();
             return Result.error("SELECT_ERROR");

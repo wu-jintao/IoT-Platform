@@ -20,7 +20,7 @@
     </select>
     <select id="findByType" resultType="com.iotplatform.backend.pojo.Updatastream"
             useCache="false">
-        select *,1 direction from updatastream  where device_id=#{devId}
+        select *,1 direction from updatastreams  where device_id=#{devId}
         <if test="data_type != null and data_type != 0">
             and data_type=#{data_type}
         </if>
@@ -28,7 +28,7 @@
     </select>
     <!-- 根据ID查询通道数据类型 -->
     <select id="findDataTypeById" resultType="java.lang.Integer">
-        select data_type from updatastream where id=#{id}
+        select data_type from updatastreams where id=#{id}
     </select>
 
 </mapper>

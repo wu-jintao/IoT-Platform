@@ -92,8 +92,7 @@ public class DeviceServiceImpl implements DeviceService {
     }
 
     @Override
-    public Result findDataStreamByType(String deviceId, Integer direct, Integer
-            data_type) {
+    public Result findDataStreamByType(String deviceId, Integer direct, Integer data_type) {
         if (StringUtil.isEmpty(deviceId)) {
             return Result.error("GET_DEVICE_ID_ERROR");
         }
@@ -111,8 +110,7 @@ public class DeviceServiceImpl implements DeviceService {
         List allupdataStreams = new ArrayList();
         if(direct==0||direct == Constants.CHANNEL_DERICTION_UP){
             //模板的所有向上通道
-            List<Updatastream> updatastreams =
-                    updatastreamDao.findByType(deviceId, data_type);
+            List<Updatastream> updatastreams = updatastreamDao.findByType(deviceId, data_type);
             for (Updatastream up : updatastreams) {
                 //向上通道封装类。
                 DatastreamDto datastreamDto = new DatastreamDto();
