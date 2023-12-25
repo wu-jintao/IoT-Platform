@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotplatform.backend.dao.DatastreamlinkDao">
+    <!-- 缓存配置-->
+    <cache eviction="LRU" flushInterval="30000" size="512" readOnly="true"/>
+    <!--表插入数据-->
+    <insert id="save" parameterType="com.iotplatform.backend.pojo.Datastreamlink" >
+        INSERT INTO
+            datastreamlink(id,title,updatastream_id,downdatastream_id)
+        VALUES(#{id},#{title},#{updatastream.id},#{downdatastream.id})
+    </insert>
+    <!--根据向上通道ID查找向下通道ID-->
+    <select id="findDownByUp" resultType="String">
+        SELECT downdatastream_id FROM datastreamlink where updatastream_id =
+                                                           #{updatastream_id}
+    </select>
+    <delete id="deleteByUpdatastreamId" parameterType="String">
+        delete from datastreamlink where updatastream_id=#{id}
+    </delete>
+    <delete id="deleteByDowndatastreamId" parameterType="String">
+        delete from datastreamlink where downdatastream_id=#{id}
+    </delete>
+
+    <!--新建设备-->
+    <insert id="save" parameterType="com.iotplatform.backend.pojo.Downdatastream" >
+        insert into downdatastream(id,title,data_type,device_id)
+        values(#{id},#{title},#{data_type},#{device.id})
+    </insert>
+    <!-- 删除设备，根据ID -->
+    <delete id="delete" parameterType="String">
+        delete from downdatastream where id=#{id}
+    </delete>
+    <select id="findByDeviceId" resultType="com.iotplatform.backend.pojo.Downdatastream">
+        select * from downdatastream  where device_id=#{deviceId}
+    </select>
+    <select id="findByType" resultType="com.iotplatform.backend.pojo.Downdatastream"
+            useCache="false">
+        select * from downdatastream  where device_id=#{devId}
+        <if test="data_type != null and data_type != 0">
+            and data_type=#{data_type}
+        </if>
+        ORDER BY data_type,title
+    </select>
+    <!-- 查询通道,根据id -->
+    <select id="findById" resultType="com.iotplatform.backend.pojo.Downdatastream">
+        select *,2 direction from downdatastream where id=#{id}
+    </select>
+</mapper>

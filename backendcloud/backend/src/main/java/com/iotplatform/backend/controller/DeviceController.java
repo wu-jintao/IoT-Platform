@@ -7,10 +7,7 @@ import com.iotplatform.backend.service.DeviceService;
 import com.iotplatform.backend.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -42,6 +39,32 @@ public class DeviceController {
         }catch (Exception e){
             e.printStackTrace();
             return Result.error("DEVICE_UPDATE_ERROR");
+        }
+    }
+
+    @DeleteMapping(value="{id}")
+    public Result delete(@PathVariable String id){
+        try{
+            return deviceService.deleteById(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.error("DEVICE_DELETE_ERROR");
+        }
+    }
+
+    /**查询所有设备通道及根据不同条件查询设备通道
+     * direct：<1 设备向上通道 2 设备向下通道 0 设备所有通道>
+     * data_type：<0：默认全部 1：数值2：开关 3 GPS 4：文本>**/
+    @GetMapping("/{device_pk}/datastream/{direct}/{data_type}")
+    public Result findDataStreamByType(@PathVariable("device_pk") String
+                                               device_pk,@PathVariable("direct") Integer direct,@PathVariable("data_type")
+                                       Integer data_type){
+        try{
+            return
+                    deviceService.findDataStreamByType(device_pk,direct,data_type);
+        }catch (Exception e){
+            e.printStackTrace();
+            return Result.error("SELECT_ERROR");
         }
     }
 }

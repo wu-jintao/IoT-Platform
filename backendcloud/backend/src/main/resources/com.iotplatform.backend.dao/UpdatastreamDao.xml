@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iotplatform.backend.dao.UpdatastreamDao">
+
+    <!--新建设备-->
+    <insert id="save" parameterType="com.iotplatform.backend.pojo.Updatastream" >
+        insert into updatastreams(id,title,data_type,device_id)
+        values(#{id},#{title},#{dataType},#{device.id})
+    </insert>
+
+    <!-- 删除设备，根据ID -->
+    <delete id="deleteById" parameterType="String">
+        delete from updatastreams where id=#{id}
+    </delete>
+
+    <select id="findByDevId" resultType="com.iotplatform.backend.pojo.Updatastream">
+        select * from updatastreams where device_id=#{id}
+    </select>
+    <select id="findByType" resultType="com.iotplatform.backend.pojo.Updatastream"
+            useCache="false">
+        select *,1 direction from updatastream  where device_id=#{devId}
+        <if test="data_type != null and data_type != 0">
+            and data_type=#{data_type}
+        </if>
+        ORDER BY data_type,title
+    </select>
+    <!-- 根据ID查询通道数据类型 -->
+    <select id="findDataTypeById" resultType="java.lang.Integer">
+        select data_type from updatastream where id=#{id}
+    </select>
+
+</mapper>

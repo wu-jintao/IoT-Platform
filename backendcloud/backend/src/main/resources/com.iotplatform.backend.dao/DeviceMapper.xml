@@ -37,4 +37,9 @@
         </set>
         where id=#{id}
     </update>
+
+    <!-- 删除设备，根据ID -->
+    <delete id="delete" parameterType="String">
+        delete from device where id=#{id}
+    </delete>
 </mapper>
