@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="mongo" />
         <module name="backend" />
+        <module name="mqttclient" />
       </profile>
     </annotationProcessing>
   </component>
