@@ -27,11 +27,11 @@
         delete from downdatastreams where id=#{id}
     </delete>
     <select id="findByDeviceId" resultType="com.iotplatform.backend.pojo.Downdatastream">
-        select * from downdatastreams  where device_id=#{deviceId}
+        select * from downdatastreams where device_id=#{deviceId}
     </select>
     <select id="findByType" resultType="com.iotplatform.backend.pojo.Downdatastream"
             useCache="false">
-        select * from downdatastreams  where device_id=#{devId}
+        select * from downdatastreams where device_id=#{devId}
         <if test="data_type != null and data_type != 0">
             and data_type=#{data_type}
         </if>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/0b54afe1-2e9b-47de-8782-179b85adece6/console_2.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/backend/src/main/java/com/iotplatform/backend/dao/DeviceMapper.java" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/backend/src/main/java/com/iotplatform/backend/dao/UserMapper.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/backend/src/main/resources/com.iotplatform.backend.dao/DeviceMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/backend/src/main/resources/com.iotplatform.backend.dao/DowndatastreamDao.xml" dialect="GenericSQL" />

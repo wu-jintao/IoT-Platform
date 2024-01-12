@@ -74,19 +74,19 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     public Result deleteById(String id) {
         Device device = deviceMapper.findById(id);
-        if (device == null) {
-            return Result.error("DEVICE_NOT_FOUND");
-        }
-        List<Updatastream> updatastreams = updatastreamDao.findByDevId(id);
-        for (Updatastream up : updatastreams) {
-            updatastreamService.delete(up.getId());
-        }
-        List<Downdatastream> downdatastreams =
-                downdatastreamDao.findByDeviceId(id);
-        for (Downdatastream down : downdatastreams
-        ) {
-            downdatastreamService.delete(down.getId());
-        }
+//        if (device == null) {
+//            return Result.error("DEVICE_NOT_FOUND");
+//        }
+//        List<Updatastream> updatastreams = updatastreamDao.findByDevId(id);
+//        for (Updatastream up : updatastreams) {
+//            updatastreamService.delete(up.getId());
+//        }
+//        List<Downdatastream> downdatastreams =
+//                downdatastreamDao.findByDeviceId(id);
+//        for (Downdatastream down : downdatastreams
+//        ) {
+//            downdatastreamService.delete(down.getId());
+//        }
         deviceMapper.delete(id);
         return Result.success(null);
     }

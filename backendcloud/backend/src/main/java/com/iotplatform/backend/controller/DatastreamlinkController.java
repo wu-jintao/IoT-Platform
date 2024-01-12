@@ -24,7 +24,7 @@ public class DatastreamlinkController {
     * data_type:通道数据类型，data_type：<0：默认全部 1：数值2：开关 3 GPS 4：文本>
     * direct:通道方向,//0-双向通道；1-向上通道；2-向下通道
     * */
-    @PostMapping(value = "{deviceId}/{title}/{data_type}/{direct}")
+    @GetMapping(value = "{deviceId}/{title}/{data_type}/{direct}")
     public Result add(@PathVariable String deviceId, @PathVariable String
             title, @PathVariable Integer data_type, @PathVariable Integer direct){
         Datastreamlink datastreamlink = new Datastreamlink();

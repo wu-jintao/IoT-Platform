@@ -24,8 +24,6 @@ public class UpdatastreamService implements IUpdatastreamService {
     private DatastreamlinkDao datastreamlinkDao;
     @Autowired
     private IDowndatastreamService downdatastreamService;
-    // @Autowired
-    // private IMqttService mqttService;
     @Override
     public Result save(String deviceId, Updatastream updatastream) {
         if (deviceId.isEmpty()) {
